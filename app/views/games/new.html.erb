@@ -1,2 +1,24 @@
-<h1>Games#new</h1>
+<h1>Add a New Game</h1>
 <p>Find me in app/views/games/new.html.erb</p>
+
+<%= form_for(@game) do |f| %>
+
+<div class="field">
+  <%= f.label :title %>
+  <%= f.text_fiel :title %>
+</div>
+
+
+  <%= f.label :title %>
+  <%= f.text_fiel :title %>
+
+  <%= f.label :title %>
+  <%= f.text_fiel :title %>
+
+
+<% end %>
+t.string :title
+t.text   :description
+t.string :rating
+t.boolean :completed, default: false
+t.text    :notes
