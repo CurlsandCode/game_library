@@ -1,2 +1,6 @@
 <h1>Welcome, <%= @user.email %></h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<p>Your Games</p>
+<% @user.games.each do |game| %>
+  <li><%= link_to "#{game.title}", game_path(game) %></li>
+<% end %>
+<%= link_to "Add a Game",  new_game_path %>
