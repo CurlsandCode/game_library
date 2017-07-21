@@ -1,6 +1,12 @@
-<h1>Welcome, <%= @user.username %></h1>
-<p>Your Games</p>
-<% @user.games.each do |game| %>
-  <li><%= link_to "#{game.title}", game_path(game) %></li>
-<% end %>
-<%= link_to "Add a Game",  new_game_path %>
+<div class="col-10 offset-1">
+  <h1>Welcome, <%= @user.username %></h1>
+  <p>Your Games</p>
+  <% @user.games.each do |game| %>
+    <div class="game-box col-10 offset-1">
+      <h1><%= game.title %></h1>
+      <%= link_to "#{game.title}", game_path(game) %>
+    </div>
+
+  <% end %>
+  <%= link_to "Add a Game",  new_game_path %>
+</div>
