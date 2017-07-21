@@ -1,6 +1,16 @@
 <h1><%= @game.title %></h1>
 <p><%= @game.description %></p>
+
 <% @game.screenshots.each do |pic|%>
-  <%= pic.inspect %>
+
+  <%= pic %>
 <% end %>
 <%= link_to "Edit Game", edit_game_path(@game)  %>
+
+<%= form_for @screenshot do |f| %>
+  <%= f.label :picture %>
+  <%= f.file_field :picture %> <br>
+  <%= f.label :caption %>
+  <%= f.text_field :caption %> <br>
+  <%= f.submit %>
+<% end %>

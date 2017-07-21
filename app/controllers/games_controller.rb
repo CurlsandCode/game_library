@@ -6,7 +6,7 @@ class GamesController < ApplicationController
 
   def new
     @game = Game.new
-    @game.screenshots.build
+    @screenshot = @game.screenshots.build
   end
 
   def create
@@ -25,6 +25,7 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
+    @screenshot = @game.screenshots.build
   end
 
   def edit

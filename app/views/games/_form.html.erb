@@ -42,15 +42,7 @@
     </div>
     <br>
 
-    <div class="field">
-      <%= f.fields_for :screenshots do |screenshot_builder| %>
-        <%= screenshot_builder.label :picture, "Upload Screenshot" %><br>
-        <p><%= screenshot_builder.file_field :picture %></p>
-        <%= screenshot_builder.label :caption %><br>
-        <%= screenshot_builder.text_field :caption %>
-      <% end %>
-    </div>
-    <br>
+    
 
     <%= f.submit "Add Game", :class=> "btn btn-primary" %>
 
