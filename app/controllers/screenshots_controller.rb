@@ -2,6 +2,7 @@ class ScreenshotsController < ApplicationController
   def create
     @game = Game.find(params[:game_id])
     @game.screenshots.build(screenshots_params)
+    binding.pry
     if @game.save
       flash[:notice] = "Game not created."
       redirect_to game_path(@game)

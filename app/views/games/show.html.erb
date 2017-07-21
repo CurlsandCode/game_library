@@ -3,11 +3,12 @@
 
 <% @game.screenshots.each do |pic|%>
 
-  <%= pic %>
+  <%= image_tag pic.picture.url(:medium) %> <br>
+  
 <% end %>
 <%= link_to "Edit Game", edit_game_path(@game)  %>
 
-<%= form_for @screenshot do |f| %>
+<%= form_for @screenshot, url: game_screenshots_path(@game) do |f| %>
   <%= f.label :picture %>
   <%= f.file_field :picture %> <br>
   <%= f.label :caption %>
