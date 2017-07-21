@@ -9,6 +9,13 @@
     width: 500px;
 }
 
+.description {
+    padding: 5px;
+    border: 1px solid black;
+    background: rgba(191, 191, 191, 0.25);
+    margin-bottom: 5px;
+}
+
 .game-box {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -16,7 +23,7 @@
   background: #fff;
   border: 1px solid #ccc;
   border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
-  padding: 20px;
+  padding: 15px;
   margin-top: 10px;
   margin-bottom: 10px;
 }
@@ -34,4 +41,8 @@ body {
 .navbar {
   background: image_url('nav-pic.png');
   box-shadow: 0px 2px 5px #2a2a2a;
+}
+
+.navbar-inverse .navbar-brand {
+  font-family: 'Press Start 2P', cursive;
 }
