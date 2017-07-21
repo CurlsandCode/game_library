@@ -45,7 +45,9 @@
     <div class="field">
       <%= f.fields_for :screenshots do |screenshot_builder| %>
         <%= screenshot_builder.label :picture, "Upload Screenshot" %><br>
-        <%= screenshot_builder.file_field :pictures, multiple: true %>
+        <p><%= screenshot_builder.file_field :picture %></p>
+        <%= screenshot_builder.label :caption %><br>
+        <%= screenshot_builder.text_field :caption %>
       <% end %>
     </div>
     <br>
