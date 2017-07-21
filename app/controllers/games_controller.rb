@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  
   def index
     @games = Game.all
   end
@@ -8,7 +9,7 @@ class GamesController < ApplicationController
   end
 
   def create
-    binding.pry
+
     @game = current_user.games.build(game_params)
     if @game.save
       flash[:notice] = "Game successfully created!"
@@ -29,9 +30,15 @@ class GamesController < ApplicationController
   end
 
   def update
+    @game = Game.find(params[:id])
+    binding.pry
     if @game.update(game_params)
-      flash[:alert] = "Game successfully updated."
+      flash[:notice] = "Game successfully updated."
       redirect_to user_path(current_user)
+    else
+      flash[:alert] = "Game not updated."
+      flash[:alert] = "#{@game.errors.first}"
+      render :edit
     end
   end
 

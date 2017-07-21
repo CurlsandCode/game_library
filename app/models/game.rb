@@ -1,8 +1,6 @@
 class Game < ApplicationRecord
   belongs_to :user
-  belongs_to :genre
+  validates :name, presence: true
 
-  def genres=(genres)
 
-  end
 end
