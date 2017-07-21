@@ -6,9 +6,7 @@ class Game < ApplicationRecord
 
   def screenshots_attributes=(screenshot_attributes)
     screenshot_attributes.each do |i, attributes|
-      binding.pry
       self.screenshots.build(attributes)
-      binding.pry
     end
   end
 
