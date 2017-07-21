@@ -1,11 +1,12 @@
 class GamesController < ApplicationController
-  
+
   def index
     @games = Game.all
   end
 
   def new
     @game = Game.new
+    @game.screenshots.build
   end
 
   def create
@@ -48,6 +49,6 @@ class GamesController < ApplicationController
   private
 
   def game_params
-    params.require(:game).permit(:title, :description, :rating, :completed, :notes)
+    params.require(:game).permit(:title, :description, :rating, :completed, :notes, :screenshots_attributes =>[:caption, :picture])
   end
 end
