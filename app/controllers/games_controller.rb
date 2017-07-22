@@ -1,4 +1,5 @@
 class GamesController < ApplicationController
+  before_action :authenticate_user!, only: [:new, :create, :update, :destroy]
 
   def index
     @games = Game.all
@@ -47,6 +48,8 @@ class GamesController < ApplicationController
   end
 
   def destroy
+    @game = Game.find(params[:id])
+    
   end
 
   private

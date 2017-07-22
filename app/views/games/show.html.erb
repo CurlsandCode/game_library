@@ -10,10 +10,9 @@
   </div>
   <% @game.screenshots.each do |pic|%>
     <% unless pic.id.nil? %>
-      <%= link_to game_screenshot_path(pic.id) do %>
+      <%= link_to "#{pic.picture.url}" do %>
         <%= image_tag pic.picture.url(:medium), class: "img-fluid"%>
       <% end %>
-
     <% end %>
   <% end %>
 </div>
