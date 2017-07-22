@@ -1,5 +1,6 @@
 @import "bootstrap";
 
+
 .bd-example {
     padding: 1.5rem;
     margin-right: 0;
@@ -26,6 +27,18 @@
 }
 
 .game-box {
+  -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
+  box-shadow: 1px 1px 2px 0 #d0d0d0;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-color: #e4e4e4 #bebebd #bebebd #e4e4e4;
+  padding: 15px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.game-stats {
   -moz-box-shadow: 1px 1px 2px 0 #d0d0d0;
   -webkit-box-shadow: 1px 1px 2px 0 #d0d0d0;
   box-shadow: 1px 1px 2px 0 #d0d0d0;
@@ -85,4 +98,23 @@ body {
   padding: 15px;
   margin-top: 10px;
   margin-bottom: 10px;
+}
+
+.fa-star {
+  color: #ffbf00;
+  font-size: 230%;
+}
+
+.fa-check-square-o {
+  color: #009914;
+  font-size: 400%;
+  margin-top: 5px;
+  margin-bottom: 0px;
+}
+
+.fa-square-o {
+  color: #990200;
+  font-size: 400%;
+  margin-top: 5px;
+  margin-bottom: 0px;
 }
