@@ -9,9 +9,10 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script>
-    $(".modal").on("hidden.bs.modal", function(){
-    $(".modal-body1").html("");
-});
+    $('.modal').on('hidden.bs.modal', function(e)
+   {
+       $(this).removeData();
+   }) ;
     </script>
   </head>
 

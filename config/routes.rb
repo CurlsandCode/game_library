@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   devise_for :users, :controllers => { :omniauth_callbacks => "callbacks" }
 
   resources :games do
-    resources :screenshots, only: [:create]
+    resources :screenshots, only: [:create, :show]
   end
 
   resources :users, only: [:show]
