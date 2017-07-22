@@ -1,19 +1,45 @@
-<div class="col-10 offset-1 text-center">
-  <h1><%= @game.title %></h1>
+<div class="col-8 offset-2 game-box">
+  <h1 class= "game-title text-center"><%= @game.title.upcase %></h1>
   <p><%= @game.description %></p>
-
-  <% @game.screenshots.each do |pic|%>
-
-    <%= image_tag pic.picture.url(:medium) %> <br>
-
-  <% end %>
   <%= link_to "Edit Game", edit_game_path(@game)  %>
 
+</div>
+<div class="container">
+  <div class="col-12 text-center">
+    <h2><%= @game.title %> Screenshots</h2>
+  </div>
+  <% @game.screenshots.each do |pic|%>
+    <% unless pic.id.nil? %>
+      <a href="#" data-toggle="modal" data-target="#myModal"><%= image_tag pic.picture.url(:medium), class: "img-fluid"%></a>
+      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content" style = "width: 700px; margin-left: -80px;">
+            <div class="modal-body">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">×</span>
+              </button>
+                <%= image_tag pic.picture.url, class: "img-fluid"%>
+              <h6 class="modal-title" id="myModalLabel"><%= pic.caption %></h4>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+
+<div class="col-4 offset-4 game-box">
   <%= form_for @screenshot, url: game_screenshots_path(@game) do |f| %>
-    <%= f.label :picture %>
-    <%= f.file_field :picture %> <br>
-    <%= f.label :caption %>
-    <%= f.text_field :caption %> <br>
-    <%= f.submit %>
+    <div class="row">
+      <%= f.label :picture, "Upload Screenshot:", class: "col-4 col-form-label" %>
+      <%= f.file_field :picture, class: "col-7 form-control" %>
+    </div>
+    <br>
+    <div class="row">
+      <%= f.label :caption, class: "col-4 col-form-label" %>
+      <%= f.text_field :caption, class: "col-7 form-control" %>
+    </div>
+    <br>
+    <p class= "text-center"><%= f.submit "Add New Screenshot", class: "btn-primary"%></p>
   <% end %>
 </div>

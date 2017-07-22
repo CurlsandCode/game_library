@@ -1,0 +1,18 @@
+<div class="row">
+  <div class="col-12">
+    <h1 class= "game-title text-center"><%= game.title.upcase %></h1>
+  </div>
+</div>
+<br>
+<div class="row">
+  <div class="col-6">
+    <%= image_tag game.screenshots.first.picture.url, class: "img-fluid rounded" %>
+  </div>
+  <div class="col-6">
+    <p><%= game.description %></p>
+  </div>
+</div>
+<br>
+<div class="col-12 text-center">
+  <%= link_to "See More", game_path(game), class: "btn btn-primary" %>
+</div>

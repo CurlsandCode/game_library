@@ -1,55 +1,58 @@
-<div class="bd-example">
+<div class="game-form">
 
-  <h1>Add a New Game</h1>
+  <h1 class= "text-center">Add a New Game</h1><br>
 
   <%= form_for @game do |f| %>
-    <div class="field">
-      <%= f.label :title %> <br>
-      <%= f.text_field :title %>
+    <div class="field row">
+      <%= f.label :title, class: "h4 col-2 col-form-label"%>
+      <%= f.text_field :title, class: "col-10 form-control" %>
     </div>
     <br>
 
-    <div class="field">
+    <div class="field row">
       <%= f.label :description, "Brief description of the game:" %> <br>
-      <%= f.text_area :description %>
+      <%= f.text_area :description, class: "form-control col-12" %>
     </div>
     <br>
 
-    <div class="field">
-      <%= label :completed, "Check box if game has been completed." %>
-      <%= f.check_box :completed %>
+    <div class="field row">
+      <%= f.label :notes, "Player Notes:" %> <br>
+      <%= f.text_area :notes, class: "form-control col-12" %>
     </div>
     <br>
 
-    <div class="field">
-      Game Rating <br>
+    <%= f.fields_for :screenshots do |screenshot_builder| %>
+      <div class="field row">
+        <%= screenshot_builder.label :picture, "Upload Screenshot:", class: "col-4 h5 col-form-label" %>
+        <%= screenshot_builder.file_field :picture, class: "col-8 form-control" %>
+      </div>
+      <br>
+      <div class=" field row">
+        <%= screenshot_builder.label :caption, class: "col-4 h5 col-form-label" %>
+        <%= screenshot_builder.text_field :caption, class: "col-8 form-control" %>
+      </div>
+    <% end %>
+
+    <br>
+
+    <div class="form-check form-check-inline col-12">
+      Game Rating: &nbsp;
       <%= f.radio_button :rating, '1 Star' %>
-      <%= f.label :rating, '1 Star', :value => '1 Star' %>
+      <%= f.label :rating, '1 Star', :value => '1 Star' %>&nbsp;
       <%= f.radio_button :rating, '2 Stars' %>
-      <%= f.label :rating, '2 Stars', :value => '2 Stars' %>
+      <%= f.label :rating, '2 Stars', :value => '2 Stars' %>&nbsp;
       <%= f.radio_button :rating, '3 Stars' %>
-      <%= f.label :rating, '3 Stars', :value => '3 Stars' %>
+      <%= f.label :rating, '3 Stars', :value => '3 Stars' %>&nbsp;
       <%= f.radio_button :rating, '4 Stars' %>
-      <%= f.label :rating, '4 Stars', :value => '4 Stars' %>
+      <%= f.label :rating, '4 Stars', :value => '4 Stars' %>&nbsp;
       <%= f.radio_button :rating, '5 Stars' %>
       <%= f.label :rating, '5 Stars', :value => '5 Stars' %>
     </div>
     <br>
 
     <div class="field">
-      <%= f.label :notes, "Player Notes:" %> <br>
-      <%= f.text_area :notes %>
-    </div>
-    <br>
-
-
-    <div class="field">
-       <%= f.fields_for :screenshots do |screenshot_builder| %>
-        <%= screenshot_builder.label :picture, "Upload Screenshot" %><br>
-        <p><%= screenshot_builder.file_field :picture %></p>
-        <%= screenshot_builder.label :caption %><br>
-        <%= screenshot_builder.text_field :caption %>
-      <% end %>
+      <%= f.check_box :completed%> &nbsp;
+      <%= label :completed, "Check box if game has been completed.", class: "col-form-label"%>
     </div>
     <br>
 

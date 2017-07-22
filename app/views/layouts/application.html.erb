@@ -5,8 +5,14 @@
     <%= csrf_meta_tags %>
     <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>
+    $(".modal").on("hidden.bs.modal", function(){
+    $(".modal-body1").html("");
+});
+    </script>
   </head>
 
   <body>

@@ -4,7 +4,7 @@ class ScreenshotsController < ApplicationController
     @game.screenshots.build(screenshots_params)
     binding.pry
     if @game.save
-      flash[:notice] = "Game not created."
+      flash[:notice] = "Sreenshot saved!"
       redirect_to game_path(@game)
     else
       flash[:alert] = "Screenshot not saved."
