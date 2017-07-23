@@ -24,7 +24,6 @@ class GamesController < ApplicationController
 
   def show
     @game = Game.find(params[:id])
-    @covershot = @game.screenshots.first
     @screenshot = @game.screenshots.build
   end
 
