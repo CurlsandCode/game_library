@@ -1,5 +1,6 @@
 <div class="col-10 offset-1 text-center">
   <h1>Hello, <%= @user.username %>!</h1> <br>
+  
   <% if @user.games.empty? %>
     <h4>You have no games :(</h4> <br>
     <h5><%= link_to "Click Here to Add a Game",  new_game_path %></h5>

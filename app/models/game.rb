@@ -13,4 +13,8 @@ class Game < ApplicationRecord
     end
   end
 
+  def self.completed_games
+    self.all.collect{|game| game if game.completed}
+  end
+
 end

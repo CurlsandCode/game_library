@@ -11,13 +11,11 @@ class GamesController < ApplicationController
   end
 
   def create
-    binding.pry
     @game = current_user.games.build(game_params)
     if @game.save
       flash[:notice] = "Game successfully created!"
       redirect_to user_path(current_user)
     else
-      binding.pry
       flash[:alert] = "Game not saved."
       flash[:alert] = "Game not created."
       render :new
