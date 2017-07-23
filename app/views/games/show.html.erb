@@ -33,6 +33,6 @@
 
   <div class="col-12 text-center">
     <br>
-    <%= render partial: "games/screenshot_modal" %>
+    <%= render partial: "games/screenshot_modal", locals: {screenshot: @screenshot, game: @game} %>
   </div>
 </div>
