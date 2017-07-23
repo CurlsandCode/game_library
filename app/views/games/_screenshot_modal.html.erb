@@ -13,7 +13,7 @@
         <h4 class="modal-title" id="myModalLabel">Add Screenshot</h4>
       </div>
       <div class="modal-body">
-        <%= form_for @screenshot, url: game_screenshots_path(@game) do |f| %>
+        <%= form_for screenshot, url: game_screenshots_path(game) do |f| %>
           <div class="row">
             <%= f.label :picture, "Upload Screenshot:", class: "col-4 col-form-label" %>
             <%= f.file_field :picture, class: "col-7 form-control" %>

@@ -1,5 +1,9 @@
 <div class="col-10 offset-1 text-center">
   <br>
   <h1 >WELCOME TO GAME TRACKER!</h1>
-  <p>Please sign up or log in!</p>
+  <% if signed_in? %>
+    Hello, <%= current_user.username %>  
+  <% else %>
+    <p>Please sign up or log in!</p>
+  <% end %>
 </div>
