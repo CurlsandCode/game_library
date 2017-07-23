@@ -1,0 +1,10 @@
+<div class="col-10 offset-1 text-center">
+  <h1>Your Completed Games:</h1>
+</div>
+  <% @games.each do |game| %>
+    <% unless game.nil? %>
+      <div class="game-box-complete col-10 offset-1">
+        <%= render partial: "users/game", locals: {game: game} %>
+      </div>
+    <% end %>
+  <% end %>

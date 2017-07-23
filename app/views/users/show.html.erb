@@ -1,10 +1,12 @@
 <div class="col-10 offset-1 text-center">
-  <h1>Hello, <%= @user.username %>!</h1> <br>
-  
+  <h1>Hello, <%= @user.username %>!</h1>
+
   <% if @user.games.empty? %>
     <h4>You have no games :(</h4> <br>
     <h5><%= link_to "Click Here to Add a Game",  new_game_path %></h5>
   <% else %>
+    <%= link_to "Add More Games", new_game_path, class: "btn btn-outline-warning btn-sm col-3" %>
+    <%= link_to "See Completed Games", "/completed_games", class: "btn btn-outline-success btn-sm col-3" %>
     <h4>Your Games:</h4>
 </div>
     <% @user.games.each do |game| %>
@@ -19,7 +21,5 @@
       <% end %>
     <% end %>
   <% end %>
-<div class="col-12 text-center">
-  <%= link_to "Add More Games", new_game_path, class: "btn btn-outline-warning btn-sm" %>
-</div>
+
 <br>

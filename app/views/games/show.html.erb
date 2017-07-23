@@ -25,7 +25,7 @@
   </div>
   <% @game.screenshots.each do |pic|%>
     <% unless pic.id.nil? %>
-      <%= link_to "#{pic.picture.url}" do %>
+      <%= link_to game_screenshot_path(@game, pic) do %>
         <%= image_tag pic.picture.url(:medium), class: "img-fluid"%>
       <% end %>
     <% end %>
