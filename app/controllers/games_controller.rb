@@ -33,7 +33,6 @@ class GamesController < ApplicationController
 
   def update
     @game = Game.find(params[:id])
-    binding.pry
     if @game.update(game_params)
       flash[:notice] = "Game successfully updated."
       redirect_to user_path(current_user)

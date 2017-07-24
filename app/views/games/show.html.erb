@@ -19,18 +19,8 @@
     <%= link_to 'Delete Game', game_path(@game), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger col-2' %>
   </div>
 </div>
-<div class="container game-box">
-  <div class="col-12 text-center">
-    <h2 class= "game-title text-center">SCREENSHOTS</h2>
-  </div>
-  <% @game.screenshots.each do |pic|%>
-    <% unless pic.id.nil? %>
-      <%= link_to game_screenshot_path(@game, pic) do %>
-        <%= image_tag pic.picture.url(:medium), class: "img-fluid"%>
-      <% end %>
-    <% end %>
-  <% end %>
-
+<div class="container game-box text-center">
+  <%= render partial: "games/screenshots", locals: {screenshots: @game.screenshots} %>
   <div class="col-12 text-center">
     <br>
     <%= render partial: "games/screenshot_modal", locals: {screenshot: @screenshot, game: @game} %>
