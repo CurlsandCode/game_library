@@ -20,3 +20,8 @@ From there, run
     $ rails s
 
 If everything is installed correctly you should see an output notifying you that rails is running locally. Copy http://localhost:3000 and paste it into your browser window. From there you are free to play around and make your own list!
+
+
+# How to contribute
+
+If you'd like to contribute to this project please either flag an issue with this repository or fork and clone the repo to your local machine. Make the changes, push to your fork, and submit a pull request. 

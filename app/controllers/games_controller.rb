@@ -17,7 +17,6 @@ class GamesController < ApplicationController
       redirect_to user_path(current_user)
     else
       flash[:alert] = "Game not saved."
-      flash[:alert] = "Game not created."
       render :new
     end
   end
@@ -38,7 +37,6 @@ class GamesController < ApplicationController
       redirect_to user_path(current_user)
     else
       flash[:alert] = "Game not updated."
-      flash[:alert] = "#{@game.errors.messages.first}"
       render :edit
     end
   end

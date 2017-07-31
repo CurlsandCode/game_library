@@ -16,6 +16,13 @@ class ScreenshotsController < ApplicationController
     @screenshot = Screenshot.find(params[:id])
   end
 
+  def destroy
+    @screenshot = Screenshot.find(params[:id])
+    @screenshot.destroy
+    flash[:notice] = "Screenshot successfully deleted"
+    redirect_to user_path(current_user)
+  end
+
   private
 
   def screenshots_params
