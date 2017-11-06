@@ -24,13 +24,18 @@
 
 <br>
 
-<div class="container game-box text-center" id="screenshot-box">
+<div class="container game-box text-center" id="screenshot-box" data-user="<%= @user.id %>">
   <%= render partial: "games/screenshots", locals: {screenshots: @user.screenshots} %>
 </div>
 
 <script type="text/javascript" charset="utf-8">
 
   $(function() {
+    var current = $("#screenshot-box").data("user");
+    console.log(current);
+    $.get("/user_screenshots", function() {
+
+    })
     $(".this-pic").on("click", function() {
       console.log($(this));
 

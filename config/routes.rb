@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   get '/completed_games', to: 'users#user_completed'
+  get '/user_screenshots', to: 'users#screenshots'
   root 'library#index'
 end
