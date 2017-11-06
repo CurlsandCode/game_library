@@ -4,4 +4,13 @@ class Screenshot < ApplicationRecord
   belongs_to :game
 
 
+  def next
+    ordered = scoped.order("created_at asc")
+    ordered.first(:conditions => ["created_at > ?", img.created_at]) || ordered.first
+  end
+
+  # def self.previous(screenshot)
+  #   where('id > ?', screenshot.id).first
+  # end
+
 end

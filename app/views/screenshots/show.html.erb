@@ -1,8 +1,27 @@
 <br>
 <div class="col-10 offset-1">
-  <%= image_tag @screenshot.picture.url, class: "img-fluid"%>
-  <p><%= @screenshot.caption %></p>
+  <span class="the-pic"><%= image_tag @screenshot.picture.url, class: "img-fluid"%></span>
+  <p class="pic-caption"><%= @screenshot.caption %></p>
   <br>
   <%= link_to "Back", game_path(@screenshot.game) %>
   <%= link_to "Delete Image", game_screenshot_path(@screenshot.game, @screenshot), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger col-2' %>
+  <button class="btn btn-danger col-2" id="js-next" data-id="[<%= @screenshot.id %>, <%= @screenshot.game.id %>]">Next...</button>
+
 </div>
+
+<script type="text/javascript" charset="utf-8">
+$(function () {
+  $("#js-next").on("click", function() {
+    var nextId = $(this).data("id");
+    console.log(nextId[0]);
+    $.get("/games/" + nextId[1] + "/screenshots.json", function(data) {
+      console.log(data);
+      // $(".pic-caption").text(data["caption"]);
+      // $(".the-pic").html("<img src=" + data["picture"]["url"] + " >");
+      // $(".postBody").text(data["description"]);
+      // // re-set the id to current on the link
+      // $(".js-next").attr("data-id", data["id"]);
+    });
+  });
+});
+</script>

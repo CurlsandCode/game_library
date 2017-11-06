@@ -14,6 +14,10 @@ class ScreenshotsController < ApplicationController
 
   def show
     @screenshot = Screenshot.find(params[:id])
+    respond_to do |format|
+      format.html {render :show}
+      format.json {render json: @screenshot.to_json}
+    end
   end
 
   def destroy
