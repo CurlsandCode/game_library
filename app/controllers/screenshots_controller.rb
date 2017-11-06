@@ -12,6 +12,15 @@ class ScreenshotsController < ApplicationController
     end
   end
 
+  def index
+    game = Game.find(params[:game_id])
+    @screenshots = game.screenshots
+    respond_to do |format|
+      format.html {render :index}
+      format.json {render json: @screenshots.to_json(:methods => :avatar_url)}
+    end
+  end
+
   def show
     @screenshot = Screenshot.find(params[:id])
     respond_to do |format|

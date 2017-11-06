@@ -4,7 +4,7 @@ Rails.application.routes.draw do
 
 
   resources :games do
-    resources :screenshots, only: [:create, :show, :destroy]
+    resources :screenshots, only: [:create, :show, :destroy, :index]
   end
 
   resources :users, only: [:show]
