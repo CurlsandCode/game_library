@@ -24,6 +24,17 @@
 
 <br>
 
-<div class="container game-box text-center">
+<div class="container game-box text-center" id="screenshot-box">
   <%= render partial: "games/screenshots", locals: {screenshots: @user.screenshots} %>
 </div>
+
+<script type="text/javascript" charset="utf-8">
+
+  $(function() {
+    $(".this-pic").on("click", function() {
+      console.log($(this));
+
+    });
+  });
+
+</script>

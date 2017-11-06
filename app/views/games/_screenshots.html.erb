@@ -5,7 +5,7 @@
   <% screenshots.each do |pic|%>
     <% unless pic.id.nil? %>
       <%= link_to game_screenshot_path(pic.game_id, pic) do %>
-        <%= image_tag pic.picture.url(:medium), class: "img-fluid"%>
+        <span id="<%= pic.id %>" class="this-pic"><%= image_tag pic.picture.url(:medium), class: "img-fluid" %></span>
       <% end %>
     <% end %>
   <% end %>
