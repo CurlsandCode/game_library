@@ -1,5 +1,6 @@
 $(document).ready(function(){
   renderPartial();
+  renderScreenShot();
 })
 
 class GamePic {
@@ -24,4 +25,22 @@ function renderPartial(){
       newPic.render();
     })
   })
+}
+
+function renderScreenShot() {
+    $("#js-next").on("click", function(e) {
+      e.preventDefault();
+      var nextId = $(this).data("pic");
+      var gameId = $(this).data("game");
+
+      $.get("/games/" + gameId + "/screenshots.json", function(data) {
+        let nextImg = data.filter(image => image.id > nextId)[0];
+
+        $("#the-pic").html("<img src=" + nextImg["avatar_url"] + " class='img-fluid' >");
+        $(".pic-caption").text(nextImg["caption"]);
+        $("#js-next").data("pic", nextImg["id"]);
+        $("#js-next").data("game", gameId);
+
+      });
+    });
 }
