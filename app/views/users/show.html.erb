@@ -25,21 +25,25 @@
 <br>
 
 <div class="container game-box text-center" id="screenshot-box" data-user="<%= @user.id %>">
-  <%= render partial: "games/screenshots", locals: {screenshots: @user.screenshots} %>
+  <!-- render partial: "games/screenshots", locals: {screenshots: @user.screenshots} -->
 </div>
 
 <script type="text/javascript" charset="utf-8">
 
-  $(function() {
+  // (function(){
+  //   document.on('load', function(){
+  //
+  //   })
+  // })
 
-    var current = $("#screenshot-box").data("user");
+    // var current = $("#screenshot-box").data("user");
+    //
+    // console.log(current);
+    //
+    // $.get("/user_screenshots.json", function(data) {
+    //
+    // });
 
-    console.log(current);
 
-    $.get("/user_screenshots.json", function(data) {
-      $("#screenshot-box").html("<%=j(render partial: 'games/screenshots', locals: {screenshots: " + data + ")%>")
-    });
-
-  });
 
 </script>

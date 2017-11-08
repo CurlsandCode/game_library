@@ -12,7 +12,7 @@ class UsersController < ApplicationController
     @screenshots = current_user.screenshots
     respond_to do |format|
       format.html {render :screenshots}
-      format.json {render json: @screenshots.to_json(:methods => :avatar_url)}
+      format.json {render json: @screenshots.to_json(:methods => [:avatar_url, :med_url, :game])}
     end
   end
 

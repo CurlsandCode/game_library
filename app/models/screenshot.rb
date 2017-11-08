@@ -5,9 +5,13 @@ class Screenshot < ApplicationRecord
 
 
   def avatar_url
-      picture.url
-    end
+    picture.url
+  end
 
+
+  def med_url
+    picture.url(:medium)
+  end
   # def self.previous(screenshot)
   #   where('id > ?', screenshot.id).first
   # end
