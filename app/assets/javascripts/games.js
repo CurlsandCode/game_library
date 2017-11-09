@@ -1,6 +1,7 @@
 $(document).ready(function(){
-  renderPartial();
   renderScreenShot();
+  renderPartial();
+
 })
 
 class GamePic {
@@ -15,9 +16,27 @@ class GamePic {
   }
 }
 
+function renderScreenShot() {
+    $("#js-next").on("click", function(e) {
+      // e.preventDefault();
+      var nextId = $(this).data("pic");
+      var gameId = $(this).data("game");
+
+      $.get("/games/" + gameId + "/screenshots.json", function(data) {
+        let nextImg = data.filter(image => image.id > nextId)[0];
+
+        $("#the-pic").html("<img src=" + nextImg["avatar_url"] + " class='img-fluid' >");
+        $(".pic-caption").text(nextImg["caption"]);
+        $("#js-next").data("pic", nextImg["id"]);
+        $("#js-next").data("game", gameId);
+
+      });
+    });
+}
+
 
 function renderPartial(){
-  
+
     document.querySelector('div#screenshot-box').innerHTML = `<div class="col-12 text-center"><h2 class= "game-title text-center">SCREENSHOTS</h2></div>`
     // Ajax request
     $.get("/user_screenshots.json", function(data) {
@@ -46,24 +65,4 @@ function renderPartial(){
   //      }
   //  })
     //
-}
-
-
-
-function renderScreenShot() {
-    $("#js-next").on("click", function(e) {
-      e.preventDefault();
-      var nextId = $(this).data("pic");
-      var gameId = $(this).data("game");
-
-      $.get("/games/" + gameId + "/screenshots.json", function(data) {
-        let nextImg = data.filter(image => image.id > nextId)[0];
-
-        $("#the-pic").html("<img src=" + nextImg["avatar_url"] + " class='img-fluid' >");
-        $(".pic-caption").text(nextImg["caption"]);
-        $("#js-next").data("pic", nextImg["id"]);
-        $("#js-next").data("game", gameId);
-
-      });
-    });
 }
