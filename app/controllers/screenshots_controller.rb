@@ -2,10 +2,10 @@ class ScreenshotsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
   def create
     @game = Game.find(params[:game_id])
-    @game.screenshots.build(screenshots_params)
-    if @game.save
+    @screenshot = @game.screenshots.build(screenshots_params)
+    if @screenshot.save
       flash[:notice] = "Sreenshot saved!"
-      redirect_to game_path(@game)
+      render json: @screenshot.to_json(:mehtods => :med_url), status: 201
     else
       flash[:alert] = "Screenshot not saved."
       redirect_to game_path(@game)

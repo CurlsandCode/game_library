@@ -1,6 +1,7 @@
 $(document).ready(function(){
   renderPartial();
   renderScreenShot();
+  screenshotSubmission();
 })
 
 class GamePic {
@@ -47,4 +48,24 @@ function renderPartial(){
       })
 
     }
+}
+
+function screenshotSubmission() {
+  $("#new_screenshot").on("submit", function(event) {
+    console.log(this);
+    $.ajax({
+      url: $(this).attr('action'),
+      method: 'POST',
+      data: $(this).serialize(),
+      success: function(response) {
+        debugger;
+      }
+    })
+    // $.post(this.action, function(data) {
+    //   console.log(data);
+    //   // $("#the-pic").html("<img src=" + nextImg["avatar_url"] + " class='img-fluid' >");
+    // })
+    event.preventDefault();
+
+  } )
 }

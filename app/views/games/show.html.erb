@@ -19,7 +19,7 @@
     <%= link_to 'Delete Game', game_path(@game), method: :delete, data: {confirm: 'Are you sure you want to delete this?'},class: 'btn btn-danger col-2' %>
   </div>
 </div>
-<div class="container game-box text-center">
+<div class="container game-box text-center" id="game-screenshots">
   <%= render partial: "games/screenshots", locals: {screenshots: @game.screenshots} %>
   <div class="col-12 text-center">
     <br>
