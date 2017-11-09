@@ -24,6 +24,6 @@
 
 <br>
 
-<div class="container game-box text-center" id="screenshot-box" data-user="<%= @user.id %>">
+<div class="container game-box text-center" id="screenshot-box" data-user="<%= @user.id %>" onload="renderPartial()">
   <!-- render partial: "games/screenshots", locals: {screenshots: @user.screenshots} -->
 </div>

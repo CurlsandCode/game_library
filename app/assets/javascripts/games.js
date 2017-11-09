@@ -19,13 +19,34 @@ class GamePic {
 function renderPartial(){
   document.querySelector('div#screenshot-box').innerHTML = `<div class="col-12 text-center"><h2 class= "game-title text-center">SCREENSHOTS</h2></div>`
   // Ajax request
-  $.get("/user_screenshots.json", function(data) {
-    data.forEach(function(screenshot) {
-      var newPic = new GamePic(screenshot.id, screenshot.game_id, screenshot.med_url)
-      newPic.render();
-    })
-  })
+  // $.get("/user_screenshots.json")
+  //   .done(function(data){
+  //
+  //   })
+    var pics = []
+    $.ajax({
+       url: "/user_screenshots.json",
+       type: "GET",
+       success: function (data, textStatus, jqXHR) {
+         for (var i = 0; i < data.length; i++) {
+           var newPic = new GamePic(data[i].id, data[i].game_id, data[i].med_url)
+           pics.push(newPic)
+         }
+       },
+       complete: function () {
+         // debugger;
+        for (var i = 0; i < pics.length; i++) {
+          pics[i].render();
+        }   // on complete of ajax hide it.
+       }
+   })
+    // data.forEach(function(screenshot) {
+    //   var newPic = new GamePic(screenshot.id, screenshot.game_id, screenshot.med_url)
+    //   pics.push(newPic);
+    // })
 }
+
+
 
 function renderScreenShot() {
     $("#js-next").on("click", function(e) {
