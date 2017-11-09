@@ -1,6 +1,7 @@
 $(document).ready(function(){
-  renderScreenShot();
   renderPartial();
+  renderScreenShot();
+
 
 })
 
@@ -36,15 +37,22 @@ function renderScreenShot() {
 
 
 function renderPartial(){
+    if (document.querySelector('div#screenshot-box')) {
 
-    document.querySelector('div#screenshot-box').innerHTML = `<div class="col-12 text-center"><h2 class= "game-title text-center">SCREENSHOTS</h2></div>`
-    // Ajax request
-    $.get("/user_screenshots.json", function(data) {
-      data.forEach(function(screenshot) {
-        var newPic = new GamePic(screenshot.id, screenshot.game_id, screenshot.med_url)
-        newPic.render();
+      document.querySelector('div#screenshot-box').innerHTML = `<div class="col-12 text-center"><h2 class= "game-title text-center">SCREENSHOTS</h2></div>`
+
+      $.get("/user_screenshots.json", function(data) {
+        data.forEach(function(screenshot) {
+          var newPic = new GamePic(screenshot.id, screenshot.game_id, screenshot.med_url)
+          newPic.render();
+        })
       })
-    })
+
+    }
+
+
+    // Ajax request
+
 
 
   // var pics = []
