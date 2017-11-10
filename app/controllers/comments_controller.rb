@@ -13,7 +13,10 @@ class CommentsController < ApplicationController
     @game = Game.find(params[:game_id])
     @comment = @game.comments.build(comments_params)
     if @comment.save
-      redirect_to game_path(@game)
+      respond_to do |format|
+        format.html {render :show}
+        format.json {render json: @comment.to_json}
+      end
     end
   end
 

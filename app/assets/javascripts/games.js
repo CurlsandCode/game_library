@@ -68,7 +68,9 @@ function renderComments() {
 function commentSubmission() {
   $("#new_comment").on("submit", function(event) {
     event.preventDefault();
-    alert("Hello :)")
+    $.post(this.action + ".json", function(data) {
+      console.log(data);
+    })
 
   })
 }
