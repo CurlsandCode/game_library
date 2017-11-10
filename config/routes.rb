@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :games do
     resources :screenshots, only: [:create, :show, :destroy, :index]
+    resources :comments
   end
 
   resources :users, only: [:show]

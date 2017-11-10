@@ -1,5 +1,7 @@
 class ScreenshotsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
+
+  
   def create
     @game = Game.find(params[:game_id])
     @screenshot = @game.screenshots.build(screenshots_params)

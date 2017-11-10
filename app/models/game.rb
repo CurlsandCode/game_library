@@ -5,6 +5,8 @@ class Game < ApplicationRecord
 
   belongs_to :user
   has_many :screenshots
+  has_many :comments
+
 
 
   def screenshots_attributes=(screenshot_attributes)
