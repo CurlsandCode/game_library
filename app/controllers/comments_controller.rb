@@ -14,7 +14,7 @@ class CommentsController < ApplicationController
     @comment = @game.comments.build(comments_params)
     if @comment.save
       respond_to do |format|
-        format.html {render :show}
+        format.html {render :show, :layout => false}
         format.json {render json: @comment.to_json}
       end
     end
