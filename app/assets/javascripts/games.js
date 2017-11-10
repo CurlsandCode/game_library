@@ -1,7 +1,7 @@
 $(document).ready(function(){
   renderPartial();
   renderScreenShot();
-  screenshotSubmission();
+  renderComments();
 })
 
 class GamePic {
@@ -48,6 +48,20 @@ function renderPartial(){
       })
 
     }
+}
+
+function renderComments() {
+
+  if (document.querySelector('div#game-comments')) {
+    
+    document.querySelector('div#game-comments').innerHTML = `<div class="col-12 text-center"><h2 class= "game-title text-center">PLAYER COMMENTS</h2></div>`
+
+    var gameId = $("#game-comments").attr("data-game")
+    $.get("/games/" + gameId + "/comments", function(data) {
+      console.log(data);
+    })
+  }
+
 }
 
 function screenshotSubmission() {
