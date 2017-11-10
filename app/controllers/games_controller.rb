@@ -24,7 +24,7 @@ class GamesController < ApplicationController
   def show
     @game = Game.find(params[:id])
     @screenshot = @game.screenshots.build
-    @comment = Comment.new
+    @comment = @game.comments.build
     respond_to do |format|
       format.html {render :show}
       format.json {render json: @game.to_json}

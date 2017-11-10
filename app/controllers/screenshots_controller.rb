@@ -1,13 +1,13 @@
 class ScreenshotsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
-  
+
   def create
     @game = Game.find(params[:game_id])
     @screenshot = @game.screenshots.build(screenshots_params)
     if @screenshot.save
       flash[:notice] = "Sreenshot saved!"
-      render json: @screenshot.to_json(:mehtods => :med_url), status: 201
+      redirect_to game_path(@game)
     else
       flash[:alert] = "Screenshot not saved."
       redirect_to game_path(@game)
@@ -33,9 +33,10 @@ class ScreenshotsController < ApplicationController
 
   def destroy
     @screenshot = Screenshot.find(params[:id])
+    @game = Game.find(params[:game_id])
     @screenshot.destroy
     flash[:notice] = "Screenshot successfully deleted"
-    redirect_to user_path(current_user)
+    redirect_to game_path(@game)
   end
 
   private
