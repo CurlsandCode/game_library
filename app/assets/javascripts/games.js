@@ -74,6 +74,7 @@ function commentSubmission() {
       method: 'POST',
       data: $(this).serialize(),
       success: function(response) {
+        $("#comment_content").val("");
         $("#comment-box").append(response);
       }
     })
