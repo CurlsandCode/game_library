@@ -32,4 +32,19 @@
   <ul id="comment-box">
 
   </ul>
+
+  <div class="comment-form">
+
+    <%= form_for @comment, url: game_comments_path(@game) do |f| %>
+      <div class="field row">
+        <%= f.label "Notes:", class: "h4 col-2 col-form-label"%>
+        <%= f.text_area :content, class: "col-10 form-control" %>
+      </div>
+      <br>
+
+      <%= f.submit "Add Note", :class=> "btn btn-primary" %>
+
+    <% end %>
+
+  </div>
 </div>

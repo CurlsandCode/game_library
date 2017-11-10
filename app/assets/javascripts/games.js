@@ -2,6 +2,7 @@ $(document).ready(function(){
   renderPartial();
   renderScreenShot();
   renderComments();
+  commentSubmission();
 })
 
 class GamePic {
@@ -62,6 +63,14 @@ function renderComments() {
     })
   }
 
+}
+
+function commentSubmission() {
+  $("#new_comment").on("submit", function(event) {
+    event.preventDefault();
+    alert("Hello :)")
+
+  })
 }
 
 function screenshotSubmission() {
