@@ -18,6 +18,22 @@ class GamePic {
   }
 }
 
+class ScreenPic {
+  constructor(img, caption, next_id, game_id){
+    this.img = img
+    this.caption = caption
+    this.next_id = next_id
+    this.game_id = game_id
+  }
+
+  render(){
+    $("#the-pic").html("<img src=" + this.img + " class='img-fluid' >");
+    $(".pic-caption").text(this.caption);
+    $("#js-next").data("pic", this.next_id);
+    $("#js-next").data("game", this.game_id);
+  }
+}
+
 function renderScreenShot() {
     $("#js-next").on("click", function(e) {
       // e.preventDefault();
@@ -26,11 +42,8 @@ function renderScreenShot() {
 
       $.get("/games/" + gameId + "/screenshots.json", function(data) {
         let nextImg = data.filter(image => image.id > nextId)[0];
-
-        $("#the-pic").html("<img src=" + nextImg["avatar_url"] + " class='img-fluid' >");
-        $(".pic-caption").text(nextImg["caption"]);
-        $("#js-next").data("pic", nextImg["id"]);
-        $("#js-next").data("game", gameId);
+        var screenshot = new ScreenPic(nextImg["avatar_url"], nextImg["caption"], nextImg["id"], gameId)
+        screenshot.render();
 
       });
     });
