@@ -3,7 +3,6 @@ $(document).ready(function(){
   renderScreenShot();
   renderComments();
   commentSubmission();
-  $.rails.enableFormElements($($.rails.formSubmitSelector));
 })
 
 class GamePic {
